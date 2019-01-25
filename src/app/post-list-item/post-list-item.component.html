@@ -1,0 +1,15 @@
+<div [ngClass]="{'list-group-item': true,
+              'list-group-item-success': postLoveIts > 0,
+              'list-group-item-danger': postLoveIts < 0 }">
+
+  <div class="text-right">{{ postDate | date :'short' | uppercase }}</div>
+
+  <h3 [ngStyle]="{color: getColor()}">{{ postTitle }}</h3>
+  <p [ngStyle]="{color: getColor()}">{{ postContent }}</p>
+  <button type="button" class="btn btn-primary btn-success"
+          [disabled]="!isAuth" 
+          (click)="onLoveIt()">Love it!</button>
+  <button type="button" class="btn btn-primary btn-danger" 
+          [disabled]="!isAuth"
+          (click)="onDontLoveIt()">Don't love it!</button>
+</div>
